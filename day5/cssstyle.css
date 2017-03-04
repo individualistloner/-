@@ -61,7 +61,7 @@ body{
   
 */
 .allMargin{
-  width: 750px;
+  width: 850px;
   margin: 20px;
   margin-bottom: 0;
   background-color: #FFFFFF;
@@ -134,7 +134,7 @@ article ul li {
 }
 
 table {
-  width: 754px;
+  width: 852px;
   border-collapse:collapse;
 }
 th {
@@ -154,7 +154,7 @@ tfoot{
   position: absolute;
   top: 74px;
   right: 20px;
-  width: 332px;
+  width: 342px;
   background-color: #FFFFFF;
   padding:  40px 20px;
   border-top: 1px solid #848484;
