@@ -26,36 +26,41 @@ li{
 .nav-list li {
     float: left;
     margin-left: 46px;
-    line-height: 56px;
+    line-height: 51px;
+
     font-size: 16px;
     font-family: "微软雅黑";
 }
 .nav-list li a {
     display: block;
     width: 64px;
-    height: 56px;
+    height: 51px;
     text-decoration: none;
     color: #B3B4B9;
 }
-.nav-list li a:hover {
+
+
+.nav-list li:hover  a{
     color: #E7504D;
+}
+
+.nav-list li:hover {
     border-bottom: 5px solid #E7504D;
 }
 
 .nav-list li .first-a{
     display: block;
     width: 32px;
-    height: 56px;
-
+    height: 51px;
 }
 
 .nav-list li .last-a{
     width: 64px;
-    height: 56px;
+    height: 51px;
     color: #E7504D;
 }
 .nav-list li .last-a img{
-    line-height: 56px;
+    line-height: 51px;
     margin-right: 4px;
 }
 
