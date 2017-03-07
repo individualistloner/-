@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
 }
-
+/*head开始*/
 .header {
     height: 42px;
     background-color: #2289BF;
@@ -21,7 +21,7 @@
     height: 28px;
     margin-right: 30px;
     padding-left: 40px;
-    background: url(image/输入框.gif) no-repeat;
+    background: url("image/输入框.gif") no-repeat;
 }
 .header .find input{
     border: none;
@@ -34,15 +34,20 @@
     float: left;
     margin-top: 4px;
 }
+/*head结束*/
 
+/*directory开始*/
 .directory {
-    padding:18px 0 0 46px;
-    width: 214px;
+    float: left;
+    padding-top:18px;
+    width: 260px;
+    height: 1000px;
     background-color: #2B2E3D
 }
 
 .headA{
    height: 78px;
+   margin-left: 46px;
 
 }
 
@@ -77,6 +82,7 @@
 
 .userMess {
     height: 50px;
+    margin-left: 46px;
 }
 
 .userMess .collect {
@@ -101,3 +107,64 @@
 .p2 {
     font-size: 14px;
 }
+
+li {
+      list-style: none;
+      font-size: 12px;
+      font-family: "SimHei",sans-serif;
+      color: #6B7C91;
+}
+
+.lipd {
+    padding-left: 67px;
+    line-height: 48px;
+}
+
+.mainul {
+    background: url("image/精灵.gif")no-repeat 45px 0;
+}
+
+.firstli {
+    line-height: 30px;
+    padding-top: 10px;
+    background: #383D4E url("image/精灵.gif")no-repeat 45px 0;
+}
+
+.firstli span , .lipd1 {
+    color: #ECECEF;
+}
+
+.ul2 {
+    background: url("image/精灵2.gif")no-repeat 0px 9px;
+    padding-left: 33px;
+}
+
+.ul3 {
+    background: url("image/精灵3.gif")no-repeat 0px 9px;
+    padding-left: 15px;
+}
+/*directory结束*/
+
+/*content开始*/
+
+.content {
+    width: 1093px;
+    height: 1000px;
+    background-color: #EEEEED;
+    float: left;
+}
+
+.path {
+    height: 32px;
+    background-color: #FFFFFF;
+    line-height: 32px;
+    padding-left: 28px;
+    color: #D4D4D4;
+    font-size: 14px;
+    font-family: "微软雅黑"
+}
+
+.path span {
+    color: #6898C2;
+}
+/*content结束*/
