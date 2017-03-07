@@ -1,0 +1,103 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    height: 42px;
+    background-color: #2289BF;
+    padding:14px 0 0 50px;
+}
+
+.header .logo {
+    float: left;
+    margin-right: 728px;
+    margin-top: -6px;
+}
+
+.header .find{
+    float: left;
+    width: 374px;
+    height: 28px;
+    margin-right: 30px;
+    padding-left: 40px;
+    background: url(image/输入框.gif) no-repeat;
+}
+.header .find input{
+    border: none;
+    width: 264px;
+    height: 18px;
+    outline: none;
+}
+
+.header .login {
+    float: left;
+    margin-top: 4px;
+}
+
+.directory {
+    padding:18px 0 0 46px;
+    width: 214px;
+    background-color: #2B2E3D
+}
+
+.headA{
+   height: 78px;
+
+}
+
+.headP {
+    float: left;
+    margin-right: 18px;
+    width: 46px;
+    height: 46px;
+    border: 1px solid #FFF;     
+    border-radius: 50%;      
+    -moz-border-radius: 50%;      
+    -webkit-border-radius: 50%;
+    padding: 5px;
+}
+
+.smHeadP {
+    width: 46px;
+    height: 46px;
+    background-color: #BABABE;  
+    border-radius: 50%;      
+    -moz-border-radius: 50%;      
+    -webkit-border-radius: 50%;
+}
+
+.headA span {
+    float: left;
+    font-family: "黑体";
+    font-size: 20px;
+    color: #FFF;
+    margin-top: 18px;
+}
+
+.userMess {
+    height: 50px;
+}
+
+.userMess .collect {
+    float: left;
+    width: 72px;
+    border-right: 2px solid #323647;
+    font-family: "黑体";
+    color: #5D6C7F;
+}
+
+.userMess .fans {
+     float: left;
+     margin-left: 30px;
+     font-family: "黑体";
+    color: #5D6C7F;
+}
+
+.p1 {
+     font-size: 18px;
+}
+
+.p2 {
+    font-size: 14px;
+}
