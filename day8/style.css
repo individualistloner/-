@@ -6,25 +6,6 @@ col-md-*表示屏幕大于768px；；
         margin: 0;
 }
 
-*{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-
-.row {
-  margin-left: -15px;
-  margin-right: -15px;
-}  
-.container {
-    border-radius: 6px;
-    padding-left: 15px;
-    padding-right: 15px;
-    max-width: 100%;
-    margin-right: auto;
-    margin-left: auto;
-}
 
 .container:before,
 .container:after {
@@ -40,6 +21,8 @@ col-md-*表示屏幕大于768px；；
       background-color: #eee;
       height: 50px;
       border:1px solid #999;
+      margin: 10px;
+      box-sizing: border-box;
 }
 
 @media screen and (max-width: 768px) {
@@ -47,41 +30,24 @@ col-md-*表示屏幕大于768px；；
     float: left;
   }
   .col-sm-12 {
-    width: 100%;
+    width: calc(100% - 20px);
   }
-  .col-sm-11 {
-    width: 91.66666667%;
-  }
-  .col-sm-10 {
-    width: 83.33333333%;
-  }
-  .col-sm-9 {
-    width: 75%;
-  }
+ 
   .col-sm-8 {
-    width: 66.66666667%;
+    width: calc(66.66666667% - 20px);
   }
-  .col-sm-7 {
-    width: 58.33333333%;
-  }
+
   .col-sm-6 {
-    width: 50%;
+    width: calc(50% - 20px);
   }
-  .col-sm-5 {
-    width: 41.66666667%;
-  }
-  .col-sm-4 {
-    width: 33.33333333%;
-  }
-  .col-sm-3 {
-    width: 25%;
+ 
+   .col-sm-3 {
+    width: calc(25% - 20px);
   }
   .col-sm-2 {
-    width: 16.66666667%;
+    width: calc(16.66666667% - 20px);
   }
-  .col-sm-1 {
-    width: 8.33333333%;
-  }
+ 
 
  } 
 
@@ -89,41 +55,23 @@ col-md-*表示屏幕大于768px；；
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
      float: left;
   }
-  .col-md-12 {
-    width: 100%;
-  }
-  .col-md-11 {
-    width: 91.66666667%;
-  }
-  .col-md-10 {
-    width: 83.33333333%;
-  }
-  .col-md-9 {
-    width: 75%;
-  }
-  .col-md-8 {
-    width: 66.66666667%;
-  }
-  .col-md-7 {
-    width: 58.33333333%;
-  }
+  
   .col-md-6 {
-    width: 50%;
+    width: calc(50% - 20px);
   }
-  .col-md-5 {
-    width: 41.66666667%;
-  }
+  
   .col-md-4 {
-    width: 33.33333333%;
+    width: calc(33.33333333% - 20px);
   }
   .col-md-3 {
-    width: 25%;
+    width: calc(25% - 20px);
   }
   .col-md-2 {
-    width: 16.66666667%;
+    width: calc(16.66666667% - 20px);
   }
   .col-md-1 {
-    width: 8.33333333%;
+
+    width: calc(8.333333% - 20px);
   }
 
   }
