@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>flex</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+    @media screen and (min-width: 640px) {
+        .box {
+            padding: 20px;
+            display: flex;
+            align-items: center; /*中间对齐*/
+            justify-content: space-between; /*x轴等宽*/
+        }
+    }
+
+    @media screen and (max-width: 640px) {
+        .box {
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;  /*竖轴对齐方式 ：向x轴上方对齐*/
+            flex-wrap: wrap; /*宽度不够就换行*/
+            
+        }
+        .box div {
+            margin-right: 40px;
+        }
+
+        .item-order {
+            margin-bottom: 40px;
+            order: -1; /*数值越小，项目越靠前*/
+        }
+    }
+    
+
+        .item1 {
+            width: 150px;
+            height: 120px;
+            border: 1px solid #f00;
+        }
+        .item2 {
+            width: 150px;
+            height: 100px;
+            border: 1px solid #f00;
+        }
+        .item3 {
+            width: 150px;
+            height: 40px;
+            border: 1px solid #f00;
+        }
+        .item4 {
+            width: 150px; 
+            height: 200px;
+            border: 1px solid #f00;
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="box"> 
+        <div class="item1 "></div>
+        <div class="item2 "></div>
+        <div class="item3 "></div>
+        <div class="item4 item-order"></div>
+    </div>
+</body>
+</html>
