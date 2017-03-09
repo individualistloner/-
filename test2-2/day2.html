@@ -31,16 +31,15 @@ var aqiData = [
   遍历读取aqiData中各个城市的数据
   将空气质量指数大于60的城市显示到aqi-list的列表中
   */
+ 		var ul = document.getElementById("aqi-list") ,
+			number = ['一','二','三','四','五','六'] ,
+			strli = "",
+			temp = 0 ;
+				
 		aqiData.sort(function(a,b){
 			return b[1] - a[1];
 		})
-		console.log(aqiData)
-		
-		var ul = document.getElementById("aqi-list") ,
-				number = ['一','二','三','四','五','六'] ,
-				strli = "",
-				temp = 0 ;
-				
+
 		for (let i = 0; i<aqiData.length; i++) {	 	
 				if ( aqiData[i][1] > 60 ) {
 					strli += '<li> 第'+number[temp]+'名: ' +aqiData[i][0] +',   ' + aqiData[i][1] + '</li>';
