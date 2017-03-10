@@ -54,9 +54,14 @@
 				if ( !reg.test(value)) {
 					alert('请输入数字！');
 					return ''
+				}else {
+					if (parseInt(value)>= 10 && parseInt(value) <= 100){
+						return value;
+					}else {
+						alert('请输入10到100之间的数字');
+						return ''
+					}
 				}
-				
-				return value ;
 			}
 			
 			/*
@@ -86,9 +91,11 @@
 			
 			function leftOfInsert () {
 				var showContent = $('showContent'),
-		
 				value = getData();
-				
+				if (showContent.children.length >= 60) {
+					alert("已经插入60个，人家不要了嘛！");
+					return;
+				}
 				if (value !== '') {
 					let div = document.createElement('div');
 					div.className ='sort';	
@@ -120,7 +127,10 @@
 			function rightOfInsert () {
 				var showContent = $('showContent'),			
 				value = getData();	
-				
+				if (showContent.children.length >= 60) {
+					alert("已经插入60个，人家不要了嘛！");
+					return;
+				}
 				if (value !== '') {
 					div = document.createElement('div'),
 					
