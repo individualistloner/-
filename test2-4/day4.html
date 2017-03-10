@@ -1,0 +1,186 @@
+<!DOCTYPE >
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>tsak_4</title>
+	</head>
+	<body>
+		<input type="text" name="" id="data-input" placeholder="请输入数字"/> 
+		<button id="button1">左侧入</button> 
+		<button id="button2">右侧入</button> 
+		<button id="button3">左侧出</button> 
+		<button id="button4">右侧出</button>
+		<div id="showContent">
+			
+		</div>
+		<script type="text/javascript">
+			/*
+			 @method $
+			    
+			 @param id
+				
+			 @return element
+			 * */
+			function $(id) {
+				return document.getElementById(id);
+			}
+				
+			/*
+			 @method getData
+			    
+			 @param id
+				
+			 @return input输入value
+			 * */
+			function getData () {
+				//正则表达式验证是否为数字
+				var reg = /^[0-9]+.?[0-9]*$/,
+					value = $('data-input').value;
+					
+			
+				if ( !reg.test(value)) {
+					alert('请输入数字！');
+					return ''
+				}
+				
+				return value ;
+			}
+			
+			/*
+			@method selfOfOut
+			    
+			@param  
+				
+			@describe 将自身从showContent删除，   每次出现更新dom节点时，需要重新绑定事件。
+			
+			 * */
+			
+			function selfOfOut () {
+				var showContent = $('showContent');
+				var btList = showContent.children;
+				var list = Array.prototype.slice.call(btList,0);
+			 	console.log(list);
+		    	list.forEach(function(item,index){
+		    		//这里获取当前节点的序号
+		            item.onclick = function () {		            	
+		            	showContent.removeChild(showContent.children[index]);
+		            	selfOfOut ()
+		            }
+		            
+		        
+		    });
+			}
+			
+			/*
+			@method leftOfInsert
+			    
+			@param  
+				
+			@describe 将input的value 从左侧插入到showContent中去
+			 * */
+			
+			function leftOfInsert () {
+				var showContent = $('showContent'),
+		
+				value = getData();
+				
+				if (value !== '') {
+					let bt = document.createElement('button');
+					bt.innerHTML =value;
+						
+					//如果不是第一个元素，则插在第一个元素之前。否则 ，直接插入。
+					if (showContent.children[0]) {
+						showContent.insertBefore(bt, showContent.children[0]);					
+					} else {
+						showContent.appendChild(bt);
+						
+					}
+					selfOfOut ()
+				
+				} else {
+					$('data-input').value = '';
+				}
+				
+			
+			}
+			
+			/*
+			@method rightOfInsert
+			    
+			@param  
+				
+			@describe 将input的value 从右侧插入到showContent中去
+			 * */
+			
+			function rightOfInsert () {
+				var showContent = $('showContent'),
+				bt = document.createElement('button'),
+				value = getData();
+				
+				if (value !== '') {
+					bt.innerHTML =value;
+					
+					//直接插入
+					showContent.appendChild(bt);	
+					selfOfOut ()
+				} else {
+					$('data-input').value = '';
+				}	
+			
+			}
+			
+			/*
+			@method leftOfOut
+			    
+			@param  
+				
+			@describe 将showContent 从左侧开始删
+			 * */
+			
+			function leftOfOut () {
+				var showContent = $('showContent');
+				if ( showContent.children.length > 0) {	
+					showContent.removeChild(showContent.children[0]);
+					selfOfOut();
+				}	
+			}
+			
+			/*
+			@method leftOfOut
+			    
+			@param  
+				
+			@describe 将showContent 从右侧侧开始删
+			 * */
+			
+			function rightOfout () {
+				var showContent = $('showContent'),
+				len = showContent.children.length;
+				if (len > 0) {
+					showContent.removeChild(showContent.children[len-1]);
+					selfOfOut();
+				}
+				
+			}
+			
+			/*
+			@method init
+			    
+			@param buttonid 
+				
+			@describe 初始化 button 事件
+			 * */
+			
+			function init (bt1,bt2,bt3,bt4) {
+				$(bt1).addEventListener('click',leftOfInsert,false);
+				$(bt2).addEventListener('click',rightOfInsert,false);
+				$(bt3).addEventListener('click',leftOfOut,false);
+				$(bt4).addEventListener('click',rightOfout,false);
+			}
+			
+			
+			
+			init('button1','button2','button3','button4');
+		</script>
+	</body>
+</html>

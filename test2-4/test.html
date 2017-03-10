@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<title>自身节点在兄弟节点的位置</title>
+	</head>
+	<body>
+		<ul id="myul">
+			<li>click</li>
+			<li>click</li>
+			<li>click</li>
+			<li>click</li>
+			<li>click</li>
+		</ul>
+		<script type="text/javascript">
+			var liList = document.getElementsByTagName('li');
+			var list = Array.prototype.slice.call(liList,0);
+			 
+		    list.forEach(function(item,index){
+		        item.onclick = function(){
+		            console.log(index);
+		        }
+		    });
+		</script>
+	</body>
+</html>
