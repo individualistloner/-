@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+    <div id="app">
+        <first-component :some-prop="value"></first-component>
+        <hr>
+        <input type="text" v-model="todo.text">
+        <secd-component v-bind="todo"></secd-component>
+        <hr>
+        <v-buttom></v-buttom>
+        <v-buttom></v-buttom>
+        <v-buttom></v-buttom>
+        <hr>
+        <div>{{total}}</div>
+        <!-- 监听自定义事件 -->
+        <e-button @increament="increamentTotal"></e-button>
+        <e-button @increament="increamentTotal"></e-button>
+        <hr>
+        <div>{{price}}</div>
+        <currency-input v-model="price"></currency-input>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //全局注册组件
+        //通过props父组件向子组件传递数据
+        Vue.component('first-component', {
+            template: '<div> <div>{{somevalue}}</div> <div>{{somevalue1}}</div> </div>',
+            props: ['someProp'],
+            //不能直接操作props，会报错
+            //使用data初始化，引用类型（数组和对象）会改变父组件数据，
+            data: function () {
+                return {
+                    somevalue: this.someProp * 10
+                }
+            },
+            //使用computed初始化,会实时被改变,引用类型会改变父组件数据
+            computed: {
+                somevalue1: function () {
+                    return this.someProp * 100
+                }
+            }
+        })
+
+        var child = {
+            template: '<div>{{isComplete}} {{text}}</div>',
+            //html不能识别大小，驼峰式需要换成相对应的短横线式 myMessage ==> my-message
+            props: ['isComplete', 'text']
+        }
+
+        var data = {
+            counter: 0
+        }
+
+        var bt = {
+            template: '<button @click="++counter">{{counter}}</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            }
+        }
+        //通过自定义事件，子组件向父组件传递消息,父组件以此做出相应的动作
+        var evenbt = {
+            template: '<button @click="increamentCounter">{{counter}}</button>',
+            data: function () {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increamentCounter: function () {
+                    this.counter += 1
+                    // this.$emit()来触发自定义事件
+                    this.$emit('increament', {
+                        value: this.counter
+                    })
+                }
+            }
+        }
+        //
+        Vue.component('currency-input', {
+            template: '\
+                        <span>\
+                        $\
+                        <input\
+                            ref="input"\
+                            v-bind:value="value"\
+                            v-on:input="updateValue($event.target.value)"\
+                        >\
+                        </span>\
+                    ',
+            props: ['value'],
+            methods: {
+                // 不是直接更新值，而是使用此方法来对输入值进行格式化和位数限制
+                updateValue: function (value) {
+                    var formattedValue = value
+                        // 删除两侧的空格符
+                        .trim()
+                        // 保留 2 位小数
+                        .slice(
+                            0,
+                            value.indexOf('.') === -1 ?
+                            value.length :
+                            value.indexOf('.') + 3
+                        )
+                    // 如果值尚不合规，则手动覆盖为合规的值
+                    if (formattedValue !== value) {
+                        this.$refs.input.value = formattedValue
+                    }
+                    // 通过 input 事件带出数值
+                    this.$emit('input', Number(formattedValue))
+                }
+            }
+        })
+        new Vue({
+            el: "#app",
+            //局部注册组件
+            components: {
+                //命名尽量使用小写加短横线
+                'secd-component': child,
+                'v-buttom': bt,
+                'e-button': evenbt
+            },
+            data: {
+                todo: {
+                    text: 'Learn Vue',
+                    isComplete: false
+                },
+                value: 1,
+                total: 0,
+                price: null
+            },
+            methods: {
+                increamentTotal: function (payload) {
+                    this.total += 1
+                    //通过荷载数据器payload,子组件可以向父组件传递数据
+                    console.log(payload.value)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
